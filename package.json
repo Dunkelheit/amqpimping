@@ -1,0 +1,52 @@
+{
+  "name": "amqpimping",
+  "version": "0.1.0",
+  "description": "Pimp my AMQP",
+  "main": "amqp.js",
+  "scripts": {
+    "lint": "eslint *.js",
+    "test": "npm run lint && nyc mocha amqp.test.js",
+    "precommit": "npm run lint",
+    "prepush": "npm test",
+    "jsdoc": "jsdoc amqp.js -R README.md -d doc/jsdoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dunkelheit/amqpimping.git"
+  },
+  "keywords": [
+    "amqp",
+    "rabbitmq",
+    "wrapper"
+  ],
+  "author": "Arturo Martinez <dunkelheit@gmail.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/Dunkelheit/amqpimping/issues"
+  },
+  "homepage": "https://github.com/Dunkelheit/amqpimping#readme",
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "bluebird-retry": "^0.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "cli-spinner": "^0.2.7",
+    "docker-compose": "^0.4.3",
+    "eslint": "^4.13.1",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
+    "sinon": "^4.1.3"
+  },
+  "nyc": {
+    "include": [
+      "amqp.js"
+    ],
+    "reporter": [
+      "text",
+      "text-summary",
+      "lcov"
+    ]
+  }
+}

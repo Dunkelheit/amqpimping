@@ -1,0 +1,12 @@
+# Docker compose file used for the integration tests
+
+version: '3'
+services:
+    rabbit:
+        image: rabbitmq:3.6.12-management
+        environment:
+            RABBITMQ_DEFAULT_USER: amqpimping
+            RABBITMQ_DEFAULT_PASS: amqpimping
+        ports:
+            - 5672:5672
+            - 15672:15672
